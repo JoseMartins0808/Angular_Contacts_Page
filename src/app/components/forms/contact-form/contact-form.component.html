@@ -1,7 +1,8 @@
-<form (submit)="formSubmit($event)">
-    <input type="text" placeholder="nome" [formControl]="name">
-    <input type="text" placeholder="e-mail" [formControl]="email">
-    <input type="text" placeholder="mensagem" [formControl]="message">
+<!-- <form (submit)="formSubmit($event)"> -->
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="nome" formControlName="name">
+    <input type="text" placeholder="e-mail" formControlName="email">
+    <input type="text" placeholder="mensagem" formControlName="password">
     <button type="submit">
         Enviar Mensagem
     </button>
