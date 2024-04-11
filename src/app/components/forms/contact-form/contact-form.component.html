@@ -3,6 +3,16 @@
     <input type="text" placeholder="nome" formControlName="name">
     <input type="text" placeholder="e-mail" formControlName="email">
     <input type="text" placeholder="mensagem" formControlName="password">
+    <select formControlName="stack">
+        <option value="">Selecione uma Stack</option>
+        <option value="frontend">Front End</option>
+        <option value="backend">Back End</option>
+        <option value="fullstack">Full Stack</option>
+    </select>
+    <div>
+        <input type="checkbox" id="agree" formControlName="agree">
+        <label for="agree">Concordo com os termos</label>
+    </div>
     <button type="submit">
         Enviar Mensagem
     </button>
