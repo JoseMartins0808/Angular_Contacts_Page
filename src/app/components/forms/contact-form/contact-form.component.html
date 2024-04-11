@@ -1,18 +1,32 @@
 <!-- <form (submit)="formSubmit($event)"> -->
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <input type="text" placeholder="nome" formControlName="name">
+    <p *ngIf="contactForm.get('name')?.errors?.['required'] && contactForm.get('name')?.value !== null">
+        O nome é obrigatório</p>
+    <p *ngIf="contactForm.get('name')?.errors?.['minlength']">
+        O nome precisa ter no mínimo 3 letras</p>
     <input type="text" placeholder="e-mail" formControlName="email">
+    <p *ngIf="contactForm.get('email')?.errors?.['required'] && contactForm.get('email')?.value !== null">
+        O email é obrigatório</p>
+    <!-- <p *ngIf="contactForm.get('email')?.errors?.['']">Deve ser um email válido</p> -->
     <input type="text" placeholder="mensagem" formControlName="password">
+    <p *ngIf="contactForm.get('password')?.errors?.['required'] && contactForm.get('password')?.value !== null">
+        A senha é obrigatória</p>
+    <p *ngIf="contactForm.get('password')?.errors?.['minlength']">A senha deve ter no mínimo 8 caracteres</p>
     <select formControlName="stack">
         <option value="">Selecione uma Stack</option>
         <option value="frontend">Front End</option>
         <option value="backend">Back End</option>
         <option value="fullstack">Full Stack</option>
     </select>
+    <p *ngIf="contactForm.get('stack')?.errors?.['minlength']">
+        Uma Stack deve ser selecionada</p>
     <div>
         <input type="checkbox" id="agree" formControlName="agree">
         <label for="agree">Concordo com os termos</label>
     </div>
+    <p *ngIf="! contactForm.get('agree')?.value && contactForm.get('agree')?.value !== null">
+        Você deve concordar com os termos de uso</p>
     <button type="submit">
         Enviar Mensagem
     </button>
