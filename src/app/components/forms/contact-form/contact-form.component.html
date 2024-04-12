@@ -1,15 +1,15 @@
-<form>
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div>
-        <input type="text" placeholder="Nome">
+        <input type=" text" placeholder="Nome" formControlName="name">
     </div>
     <div>
-        <input type="text" placeholder="Email">
+        <input type="text" placeholder="Email" formControlName="email">
     </div>
     <div>
-        <input type="text" placeholder="Telefone">
+        <input type="text" placeholder="Telefone" formControlName="phone">
     </div>
     <div>
-        <select>
+        <select formControlName="area">
             <option value="">Selecione uma áera</option>
             <option value="administrativo">Administrativo</option>
             <option value="rh">Recursos Humanos</option>
@@ -17,7 +17,7 @@
         </select>
     </div>
     <div>
-        <textarea placeholder="mensagem"></textarea>
+        <textarea placeholder="mensagem" formControlName="message"></textarea>
     </div>
     <button type="submit">Enviar Mensagem</button>
 </form>
