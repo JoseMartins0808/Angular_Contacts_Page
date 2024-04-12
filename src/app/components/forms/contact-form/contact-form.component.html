@@ -1,12 +1,22 @@
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
     <div>
         <input type=" text" placeholder="Nome" formControlName="name">
+        <p *ngIf="errors?.name?.['required'] && (contactForm.get('name')?.dirty || contactForm.get('name')?.touched)">
+            O nome é obrigatório</p>
     </div>
     <div>
         <input type="text" placeholder="Email" formControlName="email">
+        <p
+            *ngIf="errors?.email?.['required'] && (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)">
+            O E-mail é obrigatório</p>
+        <p *ngIf="errors?.email?.['email']">
+            Informe um E-mail válido</p>
     </div>
     <div>
         <input type="text" placeholder="Telefone" formControlName="phone">
+        <p
+            *ngIf="errors?.phone?.['required'] && (contactForm.get('phone')?.dirty || contactForm.get('phone')?.touched)">
+            O telefone é obrigatório</p>
     </div>
     <div>
         <select formControlName="area">
@@ -15,9 +25,17 @@
             <option value="rh">Recursos Humanos</option>
             <option value="comercial">Comercial</option>
         </select>
+        <p *ngIf="errors?.area?.['required'] && (contactForm.get('area')?.dirty || contactForm.get('area')?.touched)">
+            A área deve ser selecionada</p>
     </div>
     <div>
         <textarea placeholder="mensagem" formControlName="message"></textarea>
     </div>
+    <p
+        *ngIf="errors?.message?.['required'] && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)">
+        A mensagem é obrigatória</p>
+    <p
+        *ngIf="errors?.message?.['minlength'] && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)">
+        A mensagem deve ter no mínimo 10 caracteres</p>
     <button type="submit">Enviar Mensagem</button>
 </form>
