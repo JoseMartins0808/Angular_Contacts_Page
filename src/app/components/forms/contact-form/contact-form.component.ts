@@ -14,8 +14,10 @@ export class ContactFormComponent {
   contactForm = new FormGroup({
     name: new FormControl(null, [Validators.required, Validators.minLength(3)]),
     email: new FormControl(null, [Validators.required, Validators.email]),
-    password: new FormControl(null, [Validators.required, Validators.minLength(8)]),
-    stack: new FormControl("", [Validators.minLength(3)]),
+    password: new FormControl(null, [Validators.required,
+    Validators.minLength(8),
+    Validators.pattern(/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/)]),
+    stack: new FormControl("", [Validators.required]),
     agree: new FormControl(null)
   })
 
@@ -24,7 +26,8 @@ export class ContactFormComponent {
       name: this.contactForm.controls.name.value,
       email: this.contactForm.get("email")?.errors,
       password: this.contactForm.controls.password.value,
-      stack: this.contactForm.controls.stack.value,
+      stack: this.contactForm.get("stack")?.errors,
+      stack1: this.contactForm.get("stack")?.value,
       agree: this.contactForm.controls.agree.value
     });
 

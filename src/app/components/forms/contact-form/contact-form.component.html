@@ -8,18 +8,21 @@
     <input type="text" placeholder="e-mail" formControlName="email">
     <p *ngIf="contactForm.get('email')?.errors?.['required'] && contactForm.get('email')?.value !== null">
         O email é obrigatório</p>
-    <!-- <p *ngIf="contactForm.get('email')?.errors?.['']">Deve ser um email válido</p> -->
-    <input type="text" placeholder="mensagem" formControlName="password">
+    <p *ngIf="contactForm.get('email')?.errors?.['email']">Deve ser um email válido</p>
+    <input type="text" placeholder="senha" formControlName="password">
     <p *ngIf="contactForm.get('password')?.errors?.['required'] && contactForm.get('password')?.value !== null">
         A senha é obrigatória</p>
-    <p *ngIf="contactForm.get('password')?.errors?.['minlength']">A senha deve ter no mínimo 8 caracteres</p>
+    <p *ngIf="contactForm.get('password')?.errors?.['minlength']">
+        A senha deve ter no mínimo 8 caracteres</p>
+    <p *ngIf="contactForm.get('password')?.errors?.['pattern']">
+        A senha deve ter pelo menos um número, uma letra maiúscula e uma letra minúscula</p>
     <select formControlName="stack">
         <option value="">Selecione uma Stack</option>
         <option value="frontend">Front End</option>
         <option value="backend">Back End</option>
         <option value="fullstack">Full Stack</option>
     </select>
-    <p *ngIf="contactForm.get('stack')?.errors?.['minlength']">
+    <p *ngIf="contactForm.get('stack')?.errors?.['required'] && contactForm.get('stack')?.dirty">
         Uma Stack deve ser selecionada</p>
     <div>
         <input type="checkbox" id="agree" formControlName="agree">
