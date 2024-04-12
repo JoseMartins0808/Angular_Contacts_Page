@@ -21,6 +21,16 @@ export class ContactFormComponent {
     agree: new FormControl(null)
   })
 
+  get errors() {
+    return {
+      name: this.contactForm.get("name")?.errors,
+      email: this.contactForm.get("email")?.errors,
+      password: this.contactForm.get("password")?.errors,
+      stack: this.contactForm.get("stack")?.errors,
+      agree: this.contactForm.get("agree")?.errors
+    }
+  }
+
   onSubmit() {
     console.log({
       name: this.contactForm.controls.name.value,
