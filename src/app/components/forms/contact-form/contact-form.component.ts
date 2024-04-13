@@ -2,11 +2,15 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ErrorComponent } from '../../../error/error.component';
+import { FieldBoxComponent } from '../../field-box/field-box.component';
 
 @Component({
   selector: 'app-contact-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, ErrorComponent],
+  imports: [CommonModule,
+    ReactiveFormsModule,
+    FieldBoxComponent,
+    ErrorComponent],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.scss'
 })
