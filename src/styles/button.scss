@@ -1,0 +1,23 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 700;
+
+    padding: 0 30px;
+    height: 3.0625rem;
+
+    transition: .4s;
+
+    &.solid {
+        background: var(--color-blue);
+
+        &:hover {
+            filter: brightness(1.1);
+        }
+    }
+}

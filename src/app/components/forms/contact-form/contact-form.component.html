@@ -1,25 +1,29 @@
 <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-    <app-field-box>
+
+    <app-field-box [error]="errors.name">
         <input type=" text" placeholder="Nome" formControlName="name">
         <app-error
             *ngIf="errors?.name?.['required'] && (contactForm.get('name')?.dirty || contactForm.get('name')?.touched)">
             O nome é obrigatório</app-error>
     </app-field-box>
-    <app-field-box>
-        <input type="text" placeholder="Email" formControlName="email">
+
+    <app-field-box [error]="errors.email">
+        <input type=" text" placeholder="Email" formControlName="email">
         <app-error
             *ngIf="errors?.email?.['required'] && (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)">
             O E-mail é obrigatório</app-error>
         <app-error *ngIf="errors?.email?.['email']">
             Informe um E-mail válido</app-error>
     </app-field-box>
-    <app-field-box>
-        <input type="text" placeholder="Telefone" formControlName="phone">
+
+    <app-field-box [error]="errors.phone">
+        <input type=" text" placeholder="Telefone" formControlName="phone">
         <app-error
             *ngIf="errors?.phone?.['required'] && (contactForm.get('phone')?.dirty || contactForm.get('phone')?.touched)">
             O telefone é obrigatório</app-error>
     </app-field-box>
-    <app-field-box>
+
+    <app-field-box [error]="errors.area">
         <select formControlName="area">
             <option value="">Selecione uma áera</option>
             <option value="administrativo">Administrativo</option>
@@ -30,14 +34,15 @@
             *ngIf="errors?.area?.['required'] && (contactForm.get('area')?.dirty || contactForm.get('area')?.touched)">
             A área deve ser selecionada</app-error>
     </app-field-box>
-    <app-field-box>
+
+    <app-field-box [error]="errors.message">
         <textarea placeholder="mensagem" formControlName="message"></textarea>
+        <app-error
+            *ngIf="errors?.message?.['required'] && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)">
+            A mensagem é obrigatória</app-error>
+        <app-error
+            *ngIf="errors?.message?.['minlength'] && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)">
+            A mensagem deve ter no mínimo 10 caracteres</app-error>
     </app-field-box>
-    <app-error
-        *ngIf="errors?.message?.['required'] && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)">
-        A mensagem é obrigatória</app-error>
-    <app-error
-        *ngIf="errors?.message?.['minlength'] && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)">
-        A mensagem deve ter no mínimo 10 caracteres</app-error>
-    <button type="submit">Enviar Mensagem</button>
+    <button class="btn solid" type="submit">Enviar Mensagem</button>
 </form>

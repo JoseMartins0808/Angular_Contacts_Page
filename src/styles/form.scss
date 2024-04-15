@@ -5,6 +5,7 @@
     font-weight: 700;
     color: var(--color-black);
     background-color: var(--color-white);
+    transition: .4s;
 }
 
 .field-box {
@@ -28,5 +29,11 @@
         padding: 20px;
         resize: none;
         height: 7.125rem;
+    }
+
+    &.error {
+        input, select, textarea {
+            border-color: var(--color-red-two);
+        }
     }
 }
