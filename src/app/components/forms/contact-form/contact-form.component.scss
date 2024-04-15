@@ -1,0 +1,10 @@
+.form {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+
+    app-field-box {
+        width: 100%;
+    }
+}

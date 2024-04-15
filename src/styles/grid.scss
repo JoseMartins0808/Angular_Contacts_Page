@@ -1,0 +1,15 @@
+.container {
+    width: 100%;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1080px;
+
+    &.small {
+        max-width: 890px;
+    }
+}
+
+.box {
+    padding: clamp(40px, 4vw, 70px) 0;
+    background: var(--color-white);
+}

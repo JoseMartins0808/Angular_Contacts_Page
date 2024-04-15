@@ -1,0 +1,27 @@
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.flex-box {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 40px 60px;
+
+    @media(min-width: 1024px) {
+
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    & div {
+        width: 100%;
+
+        h1 {
+            margin-bottom: 40px;
+        }
+    }
+}
